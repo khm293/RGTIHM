@@ -11,8 +11,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## R Markdown
 
+Density plots of percent difference between the Hanson et al. (2018) model and a newer version of RGTIHM. The blue line represents the mean of the distribution of differences (1 for every time-step). Negative means the new model value is greater than the base model. 
 
-```{r plot}
+```{r plot, warning=FALSE, echo=FALSE, message=FALSE, fig.height=6, fig.width=12}
 #read in base scenario, first set working directory
 setwd('L:/projects/Mesilla_RG109K5/RGTIHM/Model_Versions/Revised_Release_09242018/NMWSC_Review/RGTIHM/output/')
 FMP_names=read.table('FDS.out',nrow=1)
@@ -62,13 +63,3 @@ d=density(FMP_percent_diff$NR_SWD_fin)
 plot(d,type='l', main=c('NR-SWD-Final'), xlab=c('Percent Difference'))
 abline(v=mean(FMP_percent_diff$NR_SWD_fin),col="blue")
 ```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

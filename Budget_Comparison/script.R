@@ -31,6 +31,7 @@ SFR_names=SFR_names[1,2:196]
 SFR_new=read.table('hyd_RGTIHM.otf', skip=1, stringsAsFactors = FALSE)
 names(SFR_new)=lapply(SFR_names[1,], as.character)
 
+
 #create percent diff matrix
 FMP_percent_diff=matrix(NA, nrow=127516, ncol=3)
 FMP_percent_diff=as.data.frame(FMP_percent_diff)
