@@ -1,12 +1,18 @@
-####### Script to Compare Water Budget Components Between RGTIHM Scenarios ######
-####### written by Katie Markovich, January 2020 ########
+---
+title: "Water Budget Comparison"
+author: "Katie Markovich"
+date: "1/23/2020"
+output: html_document
+---
 
-# load libraries
-library(tidyverse)
-library(ggplot2)
-library(cowplot)
-library()
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
+## R Markdown
+
+
+```{r plot}
 #read in base scenario, first set working directory
 setwd('L:/projects/Mesilla_RG109K5/RGTIHM/Model_Versions/Revised_Release_09242018/NMWSC_Review/RGTIHM/output/')
 FMP_names=read.table('FDS.out',nrow=1)
@@ -55,5 +61,14 @@ abline(v=mean(FMP_percent_diff$TFDR_fin),col="blue")
 d=density(FMP_percent_diff$NR_SWD_fin)
 plot(d,type='l', main=c('NR-SWD-Final'), xlab=c('Percent Difference'))
 abline(v=mean(FMP_percent_diff$NR_SWD_fin),col="blue")
+```
 
+## Including Plots
 
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
